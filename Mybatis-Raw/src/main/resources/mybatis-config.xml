@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- !DOCTYPE 后面的单词，必定是xml文件的根标签-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--设置连接数据库的环境-->
+    <environments default="development">
+        <!-- 可配置多种环境下的数据库配置 -->
+        <environment id="development">
+            <!-- 事务管理器-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!-- Mysql新版驱动类-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <!-- 我自己的个人服务器上的Mysql数据库-->
+                <property name="url" value="jdbc:mysql://xiashuo.xyz:3306/MyBatis"/>
+                <property name="username" value="mysqlXS"/>
+                <property name="password" value="mySql@327541"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入SQL映射文件-->
+    <mappers>
+        <!-- resource 路径的起点是类路径 -->
+        <mapper resource="mappers/UserMapper.xml"/>
+    </mappers>
+</configuration>

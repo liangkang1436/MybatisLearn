@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- !DOCTYPE 后面的单词，必定是xml文件的根标签-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 属性保存的是此映射文件对应的mapper接口  -->
+<mapper namespace="xyz.xiashuo.mapper.UserMapper">
+
+    <!-- id属性为此映射文件对应的mapper接口中的方法名   -->
+    <insert id="insertUser">
+        insert into t_user
+        values (null, '张三', '123', 23, '女', '1234@mybatis.org')
+    </insert>
+
+</mapper>
