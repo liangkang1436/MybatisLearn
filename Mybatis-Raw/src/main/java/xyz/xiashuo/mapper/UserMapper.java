@@ -9,4 +9,9 @@ public interface UserMapper {
      */
     int insertUser();
 
+    int updateUser();
+
+    int deleteUser();
+
+
 }

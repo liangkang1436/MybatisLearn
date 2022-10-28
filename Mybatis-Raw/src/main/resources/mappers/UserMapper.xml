@@ -12,4 +12,12 @@
         values (null, '张三', '123', 23, '女', '1234@mybatis.org')
     </insert>
 
+    <update id="updateUser">
+        update t_user set username = 'xiashuo' where id = 3
+    </update>
+
+    <delete id="deleteUser">
+        delete from t_user where id = 4
+    </delete>
+
 </mapper>
