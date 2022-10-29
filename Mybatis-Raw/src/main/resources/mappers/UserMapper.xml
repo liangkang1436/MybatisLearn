@@ -13,11 +13,26 @@
     </insert>
 
     <update id="updateUser">
-        update t_user set username = 'xiashuo' where id = 3
+        update t_user
+        set username = 'xiashuo'
+        where id = 3
     </update>
 
     <delete id="deleteUser">
-        delete from t_user where id = 4
+        delete
+        from t_user
+        where id = 4
     </delete>
+
+    <select id="getUser" resultType="xyz.xiashuo.domain.User">
+        select *
+        from t_user
+        where id = 5
+    </select>
+
+    <select id="getUsers" resultType="xyz.xiashuo.domain.User">
+        select *
+        from t_user
+    </select>
 
 </mapper>

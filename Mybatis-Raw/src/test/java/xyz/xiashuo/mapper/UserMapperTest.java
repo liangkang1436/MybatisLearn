@@ -6,9 +6,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import xyz.xiashuo.domain.User;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class UserMapperTest {
 
@@ -44,6 +46,7 @@ public class UserMapperTest {
         System.out.println("结果：" + result);
 
     }
+
     @Test
     public void testUpdateUser() throws IOException {
         if (sqlSession == null) {
@@ -57,6 +60,7 @@ public class UserMapperTest {
         System.out.println("结果：" + result);
 
     }
+
     @Test
     public void testDeleteUser() throws IOException {
         if (sqlSession == null) {
@@ -68,6 +72,32 @@ public class UserMapperTest {
         int result = userMapper.deleteUser();
         //sqlSession.commit()
         System.out.println("结果：" + result);
+
+    }
+
+    @Test
+    public void testSelectUser() throws IOException {
+        if (sqlSession == null) {
+            return;
+        }
+        //4. 通过代理模式创建UserMapper接口的代理实现类对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        //调用UserMapper接口中的方法，就可以根据UserMapper的全类名匹配元素文件，通过调用的方法名匹配映射文件中的SQL标签，并执行标签中的SQL语句
+        User result = userMapper.getUser();
+        System.out.println("结果：" + result);
+    }
+
+    @Test
+    public void testSelectUsers() throws IOException {
+        if (sqlSession == null) {
+            return;
+        }
+        //4. 通过代理模式创建UserMapper接口的代理实现类对象
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        //调用UserMapper接口中的方法，就可以根据UserMapper的全类名匹配元素文件，通过调用的方法名匹配映射文件中的SQL标签，并执行标签中的SQL语句
+        List<User> result = userMapper.getUsers();
+        System.out.println("结果：");
+        result.forEach(System.out::println);
 
     }
 }
